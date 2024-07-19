@@ -1,0 +1,178 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.4
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Jul 26, 2019 at 08:16 AM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.16
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `QuickerAutomotives`
+--
+CREATE DATABASE IF NOT EXISTS `QuickerAutomotives` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `QuickerAutomotives`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admintable`
+--
+
+CREATE TABLE IF NOT EXISTS `admintable` (
+  `Username` varchar(30) NOT NULL,
+  `Password` varchar(30) NOT NULL,
+  PRIMARY KEY (`Username`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admintable`
+--
+
+INSERT INTO `admintable` (`Username`, `Password`) VALUES
+('admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customertable`
+--
+
+CREATE TABLE IF NOT EXISTS `customertable` (
+  `CusID` varchar(10) NOT NULL,
+  `CusName` varchar(50) NOT NULL,
+  `Address` varchar(500) NOT NULL,
+  `ContactNo` varchar(15) NOT NULL,
+  `EmailID` varchar(30) NOT NULL,
+  `Password` varchar(50) NOT NULL,
+  PRIMARY KEY (`CusID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employeetable`
+--
+
+CREATE TABLE IF NOT EXISTS `employeetable` (
+  `EmpID` varchar(10) NOT NULL,
+  `EmpName` varchar(30) NOT NULL,
+  `Address` varchar(300) NOT NULL,
+  `ContactNo` varchar(20) NOT NULL,
+  `EmailID` varchar(30) NOT NULL,
+  `Password` varchar(20) NOT NULL,
+  PRIMARY KEY (`EmpID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `purchasetable`
+--
+
+CREATE TABLE IF NOT EXISTS `purchasetable` (
+  `InvoiceNo` varchar(10) NOT NULL,
+  `SupplierID` varchar(10) NOT NULL,
+  `SupplierName` varchar(50) NOT NULL,
+  `SpareID` varchar(10) NOT NULL,
+  `SpareName` varchar(50) NOT NULL,
+  `PurchasePrice` decimal(9,2) NOT NULL,
+  `SellingPrice` decimal(9,2) NOT NULL,
+  `Quantity` float NOT NULL,
+  `Total` decimal(9,2) NOT NULL,
+  PRIMARY KEY (`InvoiceNo`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `servicemaster`
+--
+
+CREATE TABLE IF NOT EXISTS `servicemaster` (
+  `ServiceNo` varchar(20) NOT NULL,
+  `CusID` varchar(20) NOT NULL,
+  `CusName` varchar(30) NOT NULL,
+  `Type` varchar(30) NOT NULL,
+  `VehicleModel` varchar(30) NOT NULL,
+  `ProblemDesc` varchar(500) NOT NULL,
+  `EntryDate` date NOT NULL,
+  `DeliveryDate` date NOT NULL,
+  `MaterialCharge` decimal(8,2) NOT NULL,
+  `LabourCharge` decimal(8,2) NOT NULL,
+  `TotalCharge` decimal(8,2) NOT NULL,
+  `Status` varchar(10) NOT NULL,
+  `EmployeeAssigned` varchar(20) NOT NULL,
+  `WorkDone` varchar(200) NOT NULL,
+  PRIMARY KEY (`ServiceNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `servicetrans`
+--
+
+CREATE TABLE IF NOT EXISTS `servicetrans` (
+  `Sno` int(11) NOT NULL,
+  `ServiceNo` varchar(10) NOT NULL,
+  `SpareID` varchar(20) NOT NULL,
+  `SpareName` varchar(30) NOT NULL,
+  `Price` decimal(8,2) NOT NULL,
+  `Quantity` float NOT NULL,
+  `Total` decimal(8,2) NOT NULL,
+  PRIMARY KEY (`Sno`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sparetable`
+--
+
+CREATE TABLE IF NOT EXISTS `sparetable` (
+  `SpareID` varchar(10) NOT NULL,
+  `SpareName` varchar(50) NOT NULL,
+  `Price` decimal(9,2) NOT NULL,
+  `Stock` float NOT NULL,
+  PRIMARY KEY (`SpareID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sparetable`
+--
+
+INSERT INTO `sparetable` (`SpareID`, `SpareName`, `Price`, `Stock`) VALUES
+('S001', 'Bolt', '60.00', 0),
+('S002', 'Chain sprocket', '350.00', 0),
+('S003', 'Seat Cover', '2500.00', 0),
+('S004', 'Brake Shoe', '300.00', 0),
+('S005', 'Cable', '200.00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suppliertable`
+--
+
+CREATE TABLE IF NOT EXISTS `suppliertable` (
+  `SupplierID` varchar(10) NOT NULL,
+  `CompanyName` varchar(30) NOT NULL,
+  `Address` varchar(500) NOT NULL,
+  `ContactNo` varchar(15) NOT NULL,
+  `EmailID` varchar(30) NOT NULL,
+  PRIMARY KEY (`SupplierID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

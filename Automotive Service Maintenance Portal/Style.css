@@ -1,0 +1,97 @@
+
+div, table {
+	text-align:center;
+}
+
+.tbl {
+	margin-top:80px;
+	text-align:left;
+}
+
+.navbar {
+  width: 100%;
+  overflow: hidden;
+  background-color: #e5127b;
+  position: absolute;
+  top:65px;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color:white;
+  padding: 8px 10px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: gray;
+}
+
+.btn_submit {
+	color:White;
+	border:none; 
+	height:26px;
+	width:100%;
+	background-color:Green; 
+}
+
+.btn_delete {
+	color:White;
+	border:none; 
+	height:26px;
+	background-color:#c90000; 
+}
+
+.btn_orange {
+	color:White;
+	border:none; 
+	height:26px;
+	background-color: orange; 
+}
+
+input, select {
+	padding: 2px 5px;
+}
+
+.mygrid {
+	width:90%;
+	margin-top:80px;
+	font-family:Cambria;
+	font-weight:bold;
+	border-collapse:collapse;
+}
+
+.mygrid tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #689ff9;
+    color: white;
+}
+
+.logo{
+    background-color:white;
+    border-radius:120px;
+    height:32%;
+    width:14%;
+    top:-13%;
+    left:63%;
+    right:23%;
+    border: solid 10px #e5127b;
+    position:fixed;
+}
+
+.brand{
+	background-color:white; 
+	width:80%; 
+	padding-top:15px;
+	padding-left:10px; 
+	font-size: 24pt; 
+	font-family: Calibri; 
+}
+
+.heading{
+	text-align: center;
+	font-size: 18px;
+	font-family: cambria;
+}
